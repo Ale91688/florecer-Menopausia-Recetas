@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Plan de 28 días con recetas para pre y post menopausia. Bajá de peso, ganá músculo y rejuvenecé con alimentación hormonal inteligente.">
+<meta name="keywords" content="menopausia recetas, perder peso menopausia, menopausia alimentación, recetas hormonales, pre menopausia dieta, post menopausia nutrición">
+<meta property="og:title" content="Nutrir & Florecer — 28 Días de Recetas para la Menopausia">
+<meta property="og:description" content="Plan nutricional de 28 días diseñado para mujeres en pre y post menopausia.">
+<title>Nutrir & Florecer — 28 Días | Pre & Post Menopausia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f1117;
+  --bg2: #161b27;
+  --bg3: #1e2535;
+  --card: rgba(255,255,255,0.04);
+  --card-hover: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.13);
+  --teal: #2dd4bf;
+  --teal2: #14b8a6;
+  --rose: #f472b6;
+  --gold: #fbbf24;
+  --violet: #a78bfa;
+  --green: #4ade80;
+  --text: #e8eaf2;
+  --text2: #9da3b8;
+  --text3: #5a6177;
+  --r: 14px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;line-height:1.6}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;border:none;outline:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+/* ── LOCK SCREEN ── */
+#lockScreen{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;
+}
+.lock-box{
+  width:100%;max-width:400px;text-align:center;
+}
+.lock-icon{font-size:3.5rem;margin-bottom:1rem;display:block}
+.lock-box h1{
+  font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;
+  background:linear-gradient(135deg,var(--teal),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:0.4rem;line-height:1.2;
+}
+.lock-box p{color:var(--text2);font-size:0.9rem;margin-bottom:2rem}
+.lock-input{
+  width:100%;padding:0.9rem 1.2rem;
+  background:var(--bg3);border:2px solid var(--border2);
+  border-radius:var(--r);color:var(--text);font-size:1rem;font-family:'DM Sans',sans-serif;
+  outline:none;text-align:center;letter-spacing:3px;
+  transition:border-color 0.2s;margin-bottom:0.8rem;
+}
+.lock-input:focus{border-color:var(--teal)}
+.lock-input::placeholder{letter-spacing:1px;color:var(--text3)}
+.lock-btn{
+  width:100%;padding:0.9rem;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--teal2),var(--violet));
+  color:#fff;font-size:1rem;font-weight:600;
+  transition:opacity 0.2s,transform 0.15s;min-height:52px;
+}
+.lock-btn:hover{opacity:0.9;transform:scale(1.02)}
+.lock-error{color:#f87171;font-size:0.85rem;margin-top:0.5rem;min-height:1.3em}
+.lock-hint{color:var(--text3);font-size:0.78rem;margin-top:1.5rem}
+
+/* ── APP ── */
+#app{display:none}
+
+/* ── TOP BAR ── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(15,17,23,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.2rem;height:58px;
+}
+.topbar-brand{
+  font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;
+  background:linear-gradient(90deg,var(--teal),var(--rose));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.topbar-right{display:flex;align-items:center;gap:0.5rem}
+.icon-btn{
+  width:42px;height:42px;border-radius:10px;
+  background:var(--card);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;transition:background 0.15s;touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.icon-btn:hover{background:var(--card-hover)}
+.prog-pill{
+  padding:0.3rem 0.75rem;border-radius:20px;
+  background:rgba(45,212,191,0.12);border:1px solid rgba(45,212,191,0.25);
+  font-size:0.75rem;font-weight:600;color:var(--teal);
+}
+
+/* ── TAB NAV ── */
+.tab-nav{
+  display:flex;background:var(--bg2);border-bottom:1px solid var(--border);
+  overflow-x:auto;scrollbar-width:none;gap:0;
+}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{
+  flex-shrink:0;padding:0.75rem 1.1rem;font-size:0.83rem;font-weight:500;
+  color:var(--text2);border-bottom:2px solid transparent;
+  transition:color 0.15s,border-color 0.15s;white-space:nowrap;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:48px;
+}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+.tab-btn:hover:not(.active){color:var(--text)}
+
+/* ── SECTIONS ── */
+.section{display:none;padding:1.2rem;max-width:860px;margin:0 auto;padding-bottom:90px}
+.section.active{display:block}
+
+/* ── HERO ── */
+.hero{
+  border-radius:20px;overflow:hidden;margin-bottom:1.5rem;
+  background:linear-gradient(135deg,#1a1f35 0%,#0d1a2a 50%,#1a1030 100%);
+  border:1px solid var(--border2);padding:2.5rem 2rem;text-align:center;position:relative;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(45,212,191,0.08),transparent);
+  pointer-events:none;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);
+  font-weight:700;line-height:1.2;margin-bottom:0.75rem;
+  background:linear-gradient(135deg,var(--teal),var(--violet),var(--rose));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero p{color:var(--text2);font-size:0.95rem;max-width:500px;margin:0 auto 1.5rem}
+.hero-pills{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center}
+.pill{
+  padding:0.35rem 0.9rem;border-radius:20px;font-size:0.78rem;font-weight:500;
+}
+.pill-teal{background:rgba(45,212,191,0.12);border:1px solid rgba(45,212,191,0.3);color:var(--teal)}
+.pill-rose{background:rgba(244,114,182,0.12);border:1px solid rgba(244,114,182,0.3);color:var(--rose)}
+.pill-gold{background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);color:var(--gold)}
+.pill-violet{background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.3);color:var(--violet)}
+
+/* ── WEEK TABS ── */
+.week-tabs{display:flex;gap:0.5rem;margin-bottom:1.2rem;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.week-tabs::-webkit-scrollbar{display:none}
+.week-tab{
+  flex-shrink:0;padding:0.45rem 1rem;border-radius:30px;font-size:0.82rem;font-weight:600;
+  background:var(--card);border:1px solid var(--border);color:var(--text2);
+  transition:all 0.15s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:40px;
+}
+.week-tab.active{background:rgba(45,212,191,0.15);border-color:var(--teal);color:var(--teal)}
+
+/* ── DAY CARD ── */
+.day-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;margin-bottom:0.75rem;
+  transition:border-color 0.15s;
+}
+.day-card:hover{border-color:var(--border2)}
+.day-card.completed{border-color:rgba(74,222,128,0.35)}
+.day-header{
+  display:flex;align-items:center;gap:0.9rem;padding:1rem 1.1rem;
+  cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  min-height:68px;
+}
+.day-num{
+  min-width:42px;height:42px;border-radius:10px;
+  background:var(--bg3);border:1px solid var(--border2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:0.6rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;
+}
+.day-num span{font-size:1.1rem;font-weight:700;color:var(--text);line-height:1}
+.day-card.completed .day-num{background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.3)}
+.day-card.completed .day-num span{color:var(--green)}
+.day-meta{flex:1;min-width:0}
+.day-meta h3{font-size:0.92rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:0.2rem}
+.day-meta p{font-size:0.78rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.day-tags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-top:0.3rem}
+.dtag{font-size:0.68rem;padding:0.15rem 0.5rem;border-radius:10px;font-weight:600}
+.dtag-w{background:rgba(45,212,191,0.1);color:var(--teal)}
+.dtag-p{background:rgba(167,139,250,0.1);color:var(--violet)}
+.dtag-m{background:rgba(251,191,36,0.1);color:var(--gold)}
+.day-chevron{font-size:0.85rem;color:var(--text3);transition:transform 0.25s;flex-shrink:0}
+.day-card.open .day-chevron{transform:rotate(180deg)}
+.day-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.day-card.open .day-body{max-height:1400px}
+.day-inner{padding:0 1.1rem 1.2rem;border-top:1px solid var(--border)}
+
+/* ── RECIPE GRID ── */
+.recipe-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1rem}
+@media(max-width:480px){.recipe-grid{grid-template-columns:1fr}}
+.recipe-block{
+  background:var(--bg3);border-radius:12px;padding:1rem;
+  border:1px solid var(--border);
+}
+.recipe-block h4{
+  font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;
+  margin-bottom:0.6rem;display:flex;align-items:center;gap:0.4rem;
+}
+.rb-icon{font-size:1rem}
+.recipe-block ul{list-style:none;padding:0}
+.recipe-block ul li{
+  font-size:0.83rem;color:var(--text2);padding:0.2rem 0;
+  border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:0.4rem;
+}
+.recipe-block ul li:last-child{border-bottom:none}
+.recipe-block ul li::before{content:'·';color:var(--teal);font-weight:700;flex-shrink:0;margin-top:0.05rem}
+.recipe-steps{margin-top:0.8rem}
+.recipe-steps p{font-size:0.83rem;color:var(--text2);line-height:1.6}
+.recipe-steps ol{padding-left:1.2rem;margin-top:0.4rem}
+.recipe-steps ol li{font-size:0.83rem;color:var(--text2);line-height:1.6;margin-bottom:0.3rem}
+.macro-bar{
+  display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.7rem;padding-top:0.7rem;
+  border-top:1px solid var(--border);
+}
+.macro{
+  flex:1;min-width:55px;text-align:center;background:var(--bg2);
+  border-radius:8px;padding:0.4rem 0.3rem;border:1px solid var(--border);
+}
+.macro .mv{font-size:0.9rem;font-weight:700;color:var(--teal)}
+.macro .ml{font-size:0.62rem;color:var(--text3);font-weight:500}
+
+/* ── TIP BLOCK ── */
+.tip-block{
+  margin-top:0.9rem;background:rgba(167,139,250,0.07);
+  border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:0.9rem 1rem;
+}
+.tip-block h5{font-size:0.78rem;font-weight:700;color:var(--violet);margin-bottom:0.35rem;display:flex;align-items:center;gap:0.35rem}
+.tip-block p{font-size:0.82rem;color:var(--text2);line-height:1.6}
+.complete-btn{
+  width:100%;margin-top:1rem;padding:0.75rem;border-radius:var(--r);
+  font-size:0.88rem;font-weight:600;transition:all 0.2s;min-height:48px;
+  background:rgba(74,222,128,0.1);border:1.5px solid rgba(74,222,128,0.35);color:var(--green);
+}
+.complete-btn:hover{background:rgba(74,222,128,0.18)}
+.complete-btn.done{background:rgba(74,222,128,0.18);border-color:var(--green)}
+
+/* ── TIPS SECTION ── */
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+@media(max-width:540px){.tips-grid{grid-template-columns:1fr}}
+.tip-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.2rem;
+}
+.tip-card .tc-icon{font-size:1.8rem;margin-bottom:0.6rem;display:block}
+.tip-card h3{font-size:0.92rem;font-weight:700;margin-bottom:0.4rem;color:var(--text)}
+.tip-card p{font-size:0.83rem;color:var(--text2);line-height:1.6}
+
+/* ── PROGRESS SECTION ── */
+.progress-overview{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.5rem;
+}
+.prog-stat{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.1rem;text-align:center;
+}
+.prog-stat .ps-val{font-size:1.8rem;font-weight:700;line-height:1}
+.prog-stat .ps-lbl{font-size:0.72rem;color:var(--text2);margin-top:0.3rem}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:0.4rem}
+.cal-day{
+  aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:0.78rem;font-weight:600;background:var(--bg3);border:1px solid var(--border);
+  color:var(--text3);cursor:pointer;touch-action:manipulation;
+  transition:all 0.15s;
+}
+.cal-day.done{background:rgba(74,222,128,0.12);border-color:rgba(74,222,128,0.3);color:var(--green)}
+.cal-day.today{border-color:var(--teal);color:var(--teal)}
+.cal-label{font-size:0.7rem;text-align:center;color:var(--text3);margin-bottom:0.4rem}
+
+/* ── INFO SECTION ── */
+.info-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.3rem;margin-bottom:0.9rem;
+}
+.info-card h3{
+  font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;
+  color:var(--text);margin-bottom:0.6rem;
+}
+.info-card p{font-size:0.87rem;color:var(--text2);line-height:1.7;margin-bottom:0.5rem}
+.info-card ul{padding-left:1.1rem;margin-top:0.3rem}
+.info-card ul li{font-size:0.86rem;color:var(--text2);line-height:1.6;margin-bottom:0.3rem}
+.info-card h4{font-size:0.88rem;font-weight:700;color:var(--teal);margin:0.8rem 0 0.4rem}
+
+/* ── BOTTOM NAV (mobile) ── */
+.bottom-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:rgba(15,17,23,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--border);
+  padding:0.4rem 0.5rem;
+  padding-bottom:max(0.4rem, env(safe-area-inset-bottom));
+}
+.bottom-nav-inner{display:flex;justify-content:space-around}
+.bn-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:0.2rem;
+  padding:0.4rem 0.3rem;border-radius:10px;font-size:0.6rem;font-weight:600;
+  color:var(--text3);transition:color 0.15s,background 0.15s;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:50px;
+}
+.bn-btn.active{color:var(--teal)}
+.bn-btn span:first-child{font-size:1.3rem;line-height:1}
+
+@media(max-width:768px){
+  .bottom-nav{display:block}
+  .section{padding-bottom:100px}
+  .tab-nav{display:none}
+  .topbar{padding:0 0.9rem}
+}
+@media(min-width:769px){
+  .tab-nav{display:flex}
+  .bottom-nav{display:none}
+}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(8px);
+  background:var(--teal2);color:#fff;padding:0.6rem 1.3rem;
+  border-radius:30px;font-size:0.85rem;font-weight:600;
+  z-index:9000;opacity:0;transition:opacity 0.25s,transform 0.25s;
+  white-space:nowrap;pointer-events:none;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(min-width:769px){.toast{bottom:30px}}
+
+/* ── PHASE BADGE ── */
+.phase-badge{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  padding:0.5rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:600;
+  margin-bottom:1rem;
+}
+.phase-pre{background:rgba(244,114,182,0.1);border:1px solid rgba(244,114,182,0.3);color:var(--rose)}
+.phase-post{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:var(--violet)}
+
+/* ── SEARCH ── */
+.search-bar{
+  display:flex;align-items:center;gap:0.5rem;
+  background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);
+  padding:0.6rem 1rem;margin-bottom:1.2rem;
+}
+.search-bar input{
+  flex:1;background:none;border:none;color:var(--text);font-size:0.9rem;font-family:'DM Sans',sans-serif;outline:none;
+}
+.search-bar input::placeholder{color:var(--text3)}
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <div class="lock-box">
+    <span class="lock-icon">🌿</span>
+    <h1>Nutrir &amp; Florecer</h1>
+    <p>Plan de 28 días para pre &amp; post menopausia<br>Ingresá tu contraseña para acceder</p>
+    <input type="password" class="lock-input" id="pwInput" placeholder="Contraseña" maxlength="30">
+    <button class="lock-btn" onclick="checkPassword()">Acceder →</button>
+    <div class="lock-error" id="pwError"></div>
+    <div class="lock-hint">Adquirido en redes sociales o YouTube</div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- APP -->
+<div id="app">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-brand">Nutrir &amp; Florecer</div>
+    <div class="topbar-right">
+      <div class="prog-pill" id="topProg">0/28</div>
+    </div>
+  </div>
+
+  <!-- Tab nav desktop -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('recetas')">🥗 Recetas 28 días</button>
+    <button class="tab-btn" onclick="showTab('progreso')">📅 Mi progreso</button>
+    <button class="tab-btn" onclick="showTab('consejos')">💡 Consejos</button>
+    <button class="tab-btn" onclick="showTab('info')">🌸 Guía hormonal</button>
+  </div>
+
+  <!-- RECETAS -->
+  <div class="section active" id="secRecetas">
+    <div class="hero">
+      <h1>28 Días para Florecer</h1>
+      <p>Recetas diseñadas para equilibrar hormonas, perder grasa, ganar músculo y rejuvenecer la piel — especialmente para pre y post menopausia.</p>
+      <div class="hero-pills">
+        <span class="pill pill-teal">⚡ Energía real</span>
+        <span class="pill pill-rose">🔥 Quema de grasa</span>
+        <span class="pill pill-gold">💪 Masa muscular</span>
+        <span class="pill pill-violet">✨ Antiinflamatorio</span>
+      </div>
+    </div>
+
+    <div class="week-tabs" id="weekTabs">
+      <button class="week-tab active" onclick="showWeek(1,this)">Semana 1</button>
+      <button class="week-tab" onclick="showWeek(2,this)">Semana 2</button>
+      <button class="week-tab" onclick="showWeek(3,this)">Semana 3</button>
+      <button class="week-tab" onclick="showWeek(4,this)">Semana 4</button>
+    </div>
+
+    <div id="daysContainer"></div>
+  </div>
+
+  <!-- PROGRESO -->
+  <div class="section" id="secProgreso">
+    <div class="progress-overview">
+      <div class="prog-stat"><div class="ps-val" id="statDone" style="color:var(--green)">0</div><div class="ps-lbl">Días completos</div></div>
+      <div class="prog-stat"><div class="ps-val" id="statLeft" style="color:var(--gold)">28</div><div class="ps-lbl">Días restantes</div></div>
+      <div class="prog-stat"><div class="ps-val" id="statPct" style="color:var(--teal)">0%</div><div class="ps-lbl">Completado</div></div>
+    </div>
+    <div style="background:var(--bg2);border-radius:var(--r);height:8px;margin-bottom:1.5rem;overflow:hidden;border:1px solid var(--border)">
+      <div id="bigProgress" style="height:100%;background:linear-gradient(90deg,var(--teal),var(--violet));border-radius:var(--r);transition:width 0.5s;width:0%"></div>
+    </div>
+    <div style="margin-bottom:0.5rem">
+      <div class="cal-label">Calendario del plan</div>
+      <div class="calendar-grid" id="calGrid"></div>
+    </div>
+    <div style="margin-top:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem">
+      <h3 style="font-size:0.9rem;font-weight:700;margin-bottom:0.75rem;color:var(--text2)">¿Por qué funciona este plan?</h3>
+      <p style="font-size:0.83rem;color:var(--text2);line-height:1.7">Durante la perimenopausia y menopausia, los niveles de estrógeno y progesterona caen. Esto afecta la sensibilidad a la insulina, la quema de grasa y la masa muscular. Este plan combina <strong style="color:var(--teal)">proteína de alta calidad</strong> (para preservar músculo), <strong style="color:var(--gold)">fitoestrógenos naturales</strong> (para equilibrio hormonal), <strong style="color:var(--rose)">antiinflamatorios</strong> (omega-3, cúrcuma, berries) y <strong style="color:var(--violet)">prebióticos y probióticos</strong> (para salud intestinal que potencia las hormonas).</p>
+    </div>
+  </div>
+
+  <!-- CONSEJOS -->
+  <div class="section" id="secConsejos">
+    <div style="margin-bottom:1.2rem">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.3rem">Estilo de vida &amp; bienestar</h2>
+      <p style="color:var(--text2);font-size:0.88rem">Consejos prácticos respaldados por ciencia para optimizar tu transición hormonal.</p>
+    </div>
+    <div class="tips-grid" id="tipsGrid"></div>
+  </div>
+
+  <!-- GUÍA HORMONAL -->
+  <div class="section" id="secInfo">
+    <div style="margin-bottom:1.2rem">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.3rem">Guía hormonal completa</h2>
+      <p style="color:var(--text2);font-size:0.88rem">Entendé qué pasa en tu cuerpo y por qué este plan funciona.</p>
+    </div>
+    <div id="infoContent"></div>
+  </div>
+
+  <!-- BOTTOM NAV mobile -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <button class="bn-btn active" onclick="showTab('recetas')"><span>🥗</span><span>Recetas</span></button>
+      <button class="bn-btn" onclick="showTab('progreso')"><span>📅</span><span>Progreso</span></button>
+      <button class="bn-btn" onclick="showTab('consejos')"><span>💡</span><span>Consejos</span></button>
+      <button class="bn-btn" onclick="showTab('info')"><span>🌸</span><span>Guía</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════
+// PASSWORD
+// ══════════════════════════════════════
+const PASS = 'florecer2026';
+function checkPassword(){
+  const v=document.getElementById('pwInput').value.trim().toLowerCase();
+  if(v===PASS||v===PASS.toUpperCase()||v==='FLORECER2026'||document.getElementById('pwInput').value.trim()==='florecer2026'){
+    document.getElementById('lockScreen').style.display='none';
+    document.getElementById('app').style.display='block';
+    initApp();
+  } else {
+    document.getElementById('pwError').textContent='Contraseña incorrecta. Verificá tu compra.';
+    document.getElementById('pwInput').value='';
+    document.getElementById('pwInput').style.borderColor='#f87171';
+    setTimeout(()=>document.getElementById('pwInput').style.borderColor='',1500);
+  }
+}
+document.getElementById('pwInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword()});
+
+// ══════════════════════════════════════
+// DATA — 28 DÍAS
+// ══════════════════════════════════════
+const DAYS=[
+// ── SEMANA 1 ──
+{d:1,w:1,title:'Arranque hormonal',phase:'pre',focus:'Fitoestrógenos + Proteína',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Batido de soja + espinaca + banana','1 cdita de semillas de lino molidas','Té verde sin azúcar'],macro:{p:'22g',c:'38g',g:'8g',kcal:'310'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['150g salmón al horno con limón y eneldo','Ensalada de rúcula + tomate cherry + pepino','1/2 taza de quinoa cocida'],macro:{p:'42g',c:'28g',g:'14g',kcal:'410'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['1 manzana verde con 1 cda mantequilla de almendras','Infusión de menta'],macro:{p:'4g',c:'22g',g:'9g',kcal:'185'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Tofu firme salteado con cúrcuma, ajo y jengibre','Brócoli al vapor','Arroz integral 1/3 taza'],'macro':{p:'28g',c:'30g',g:'9g',kcal:'320'}},
+ },
+ tip:'El lino molido activa los fitoestrógenos. Agrégalo siempre molido, no entero. Guardá en el freezer para preservar los omega-3.',
+ exercise:'20 min caminata + 10 min estiramientos de cadera',
+},
+{d:2,w:1,title:'Anticortisol',phase:'pre',focus:'Magnesio + Adaptógenos',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Avena overnight con leche de coco','Banana + cacao puro + semillas de chía','Kéfir 100ml'],macro:{p:'18g',c:'52g',g:'12g',kcal:'380'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Pechuga de pollo orgánico con hierbas','Ensalada de espinaca + nueces + pasas','Batata asada 150g'],macro:{p:'45g',c:'35g',g:'11g',kcal:'430'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['30g nueces + 2 cuadraditos chocolate 85%','Té de ashwagandha o manzanilla'],macro:{p:'7g',c:'14g',g:'18g',kcal:'240'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Crema de brócoli + semillas de calabaza','2 huevos revueltos con cúrcuma','Tostada de centeno 1u'],macro:{p:'24g',c:'26g',g:'14g',kcal:'330'}},
+ },
+ tip:'El magnesio reduce el cortisol nocturno. Antes de dormir: 1 taza de cacao puro caliente con leche de almendras sin azúcar.',
+ exercise:'Yoga suave 25 min + respiración diafragmática 5 min',
+},
+{d:3,w:1,title:'Colágeno & piel',phase:'post',focus:'Vitamina C + Proteína colágena',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Yogur griego natural 200g','Kiwi + frutillas + naranja','1 cdita de colágeno hidrolizado (opcional)','Nueces 15g'],macro:{p:'24g',c:'35g',g:'8g',kcal:'305'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Caldo de huesos casero con fideos de arroz','Tiras de pechuga + morrón rojo + zanahoria','Limón exprimido al final'],macro:{p:'38g',c:'32g',g:'6g',kcal:'345'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Licuado: kiwi + espinaca + jengibre + agua de coco'],macro:{p:'4g',c:'26g',g:'1g',kcal:'130'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Trucha al vapor con hierba buena','Coliflor asada con aceite de oliva extra virgen','Rúcula con tomate y limón'],macro:{p:'35g',c:'14g',g:'12g',kcal:'310'}},
+ },
+ tip:'La vitamina C es imprescindible para sintetizar colágeno. Combiná siempre una fuente de vit C con proteína para maximizar la síntesis de colágeno cutáneo.',
+ exercise:'15 min caminata rápida + 15 min fuerza con peso corporal (sentadillas, plancha)',
+},
+{d:4,w:1,title:'Día anti-inflamatorio',phase:'post',focus:'Omega-3 + Antioxidantes',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Tostada integral con aguacate + huevo pochado','Tomate cherry','Jengibre rallado + jugo de limón'],macro:{p:'18g',c:'28g',g:'14g',kcal:'310'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Sardinas en aceite de oliva (100g)','Ensalada verde + aceitunas + alcaparras','Pan de centeno 1 rebanada'],macro:{p:'32g',c:'24g',g:'16g',kcal:'370'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Arándanos + frambuesas 1 taza','1 cda crema de maní natural','Agua con limón y menta'],macro:{p:'5g',c:'25g',g:'8g',kcal:'190'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Caballa al horno con romero','Espárragos salteados en aceite de coco','Ensalada de remolacha rallada'],macro:{p:'36g',c:'16g',g:'11g',kcal:'305'}},
+ },
+ tip:'Los berries oscuros (arándanos, moras) son ricos en antocianinas que protegen el ADN celular y mejoran la sensibilidad a la insulina — clave en menopausia.',
+ exercise:'Natación o aquagym 30 min (suave para las articulaciones)',
+},
+{d:5,w:1,title:'Energía sostenida',phase:'pre',focus:'Hierro + B12 + Carbohidratos complejos',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Panqueques de avena y banana (sin azúcar)','Mantequilla de maní 1 cda','Frutas del bosque frescas'],macro:{p:'16g',c:'48g',g:'10g',kcal:'350'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Lentejas guisadas con cúrcuma y comino','Arroz integral 1/2 taza','Ensalada de espinaca cruda con limón'],macro:{p:'28g',c:'55g',g:'5g',kcal:'390'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Hummus casero 3 cdas','Bastones de zanahoria y apio','Té de hibisco frío'],macro:{p:'8g',c:'18g',g:'7g',kcal:'170'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Hígado de pollo salteado con cebolla y ajo (hierro hemo)','Puré de coliflor','Rúcula con tomate'],macro:{p:'35g',c:'15g',g:'8g',kcal:'280'}},
+ },
+ tip:'Las lentejas son ricas en hierro no-hemo y fitoestrógenos. Combinadas con vitamina C (limón) duplican la absorción del hierro.',
+ exercise:'Bicicleta fija o caminata con inclinación 30 min',
+},
+{d:6,w:1,title:'Día detox suave',phase:'post',focus:'Hígado + Intestino',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Agua tibia con limón al despertar (esperar 20 min)','Smoothie verde: pepino + apio + manzana + jengibre + espinaca'],macro:{p:'4g',c:'28g',g:'1g',kcal:'140'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Sopa miso con tofu y algas wakame','Edamame 1/2 taza','Arroz integral 1/2 taza'],macro:{p:'26g',c:'42g',g:'8g',kcal:'355'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Kéfir 150ml con 1 cdita de miel de abeja','Nueces 10g'],macro:{p:'8g',c:'18g',g:'7g',kcal:'170'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Crema de calabaza con semillas de lino','Ensalada de remolacha + naranja + nuez','Tostada de centeno 1u'],macro:{p:'14g',c:'35g',g:'12g',kcal:'305'}},
+ },
+ tip:'El miso y el kéfir son probióticos naturales. El intestino produce y regula hasta el 20% de los estrógenos circulantes — cuidarlo es cuidar tus hormonas.',
+ exercise:'Yoga yin 40 min o meditación + stretching profundo',
+},
+{d:7,w:1,title:'Domingo de recarga',phase:'pre',focus:'Proteína completa + Zinc',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Tortilla de 3 huevos con espinaca y queso feta','Tomate con aceite de oliva y orégano','Café o té sin azúcar'],macro:{p:'28g',c:'8g',g:'18g',kcal:'305'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Bife de lomo 150g a la plancha con ajo','Quinoa con hierbas 1/2 taza','Ensalada grande con vinagreta de mostaza'],macro:{p:'48g',c:'26g',g:'12g',kcal:'410'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Requesón 100g con frutas rojas y miel','Té de jengibre con limón'],macro:{p:'14g',c:'20g',g:'5g',kcal:'185'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Mejillones al vapor (zinc natural)','Ensalada de rucula + pepino + aguacate','Caldo de vegetales'],macro:{p:'25g',c:'10g',g:'12g',kcal:'248'}},
+ },
+ tip:'El zinc es fundamental para la producción de progesterona y para la salud tiroidea. Los mariscos son la fuente número 1. Al menos 1-2 veces por semana.',
+ exercise:'Día de descanso activo: caminata placentera 30 min al aire libre',
+},
+// ── SEMANA 2 ──
+{d:8,w:2,title:'Tiroides & metabolismo',phase:'pre',focus:'Yodo + Selenio + Proteína',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Huevos revueltos con algas nori','Pan de semillas 1 rebanada','Aguacate 1/4'],macro:{p:'22g',c:'20g',g:'16g',kcal:'315'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Atún al natural 150g con ensalada niçoise','Huevo duro 1','Aceitunas + judías verdes al vapor'],macro:{p:'42g',c:'18g',g:'12g',kcal:'360'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['2 nueces de brasil (selenio diario)','1 fruta de temporada'],macro:{p:'4g',c:'15g',g:'8g',kcal:'145'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Sopa de lentejas rojas con espinaca','Semillas de sésamo por encima','Pan de centeno 1u'],macro:{p:'22g',c:'40g',g:'7g',kcal:'315'}},
+ },
+ tip:'Solo 2 nueces de brasil al día cubren el 100% del selenio diario, nutriente esencial para la tiroides. Más no es mejor — el exceso de selenio es tóxico.',
+ exercise:'Entrenamiento de fuerza 35 min: sentadillas, peso muerto rumano, press de hombros',
+},
+{d:9,w:2,title:'Huesos fuertes',phase:'post',focus:'Calcio + Vitamina D3 + K2',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Yogur griego con granola casera sin azúcar','Semillas de sésamo 1 cda (calcio)','Higos secos 2u'],macro:{p:'20g',c:'38g',g:'10g',kcal:'325'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Salmón con espinaca salteada en ajo y limón','Brócoli al vapor con semillas de sésamo','Arroz integral 1/3 taza'],macro:{p:'40g',c:'30g',g:'14g',kcal:'415}'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Latte de cúrcuma con leche de cabra','Almendras 15g'],macro:{p:'7g',c:'10g',g:'10g',kcal:'160'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Sardinas con espinas (calcio máximo) en ensalada','Bok choy salteado','Caldo de huesos 1 taza'],macro:{p:'32g',c:'10g',g:'12g',kcal:'280'}},
+ },
+ tip:'La vitamina K2 lleva el calcio a los huesos y lejos de las arterias. Encontrala en queso fermentado, natto y vegetales fermentados. Tomá sol 20 min para vitamina D3 natural.',
+ exercise:'Pilates 30 min o ejercicios de carga + 15 min caminar con peso',
+},
+{d:10,w:2,title:'Control de glucosa',phase:'post',focus:'Fibra + Cromo + Canela',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Avena con canela + almendras + arándanos','Proteína en polvo sin azúcar 1 scoop (opcional)','Infusión de canela y jengibre'],macro:{p:'22g',c:'45g',g:'8g',kcal:'345'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Pollo al horno con vinagre de manzana y hierbas','Ensalada de garbanzos + pepino + cebolla morada','Aceite de oliva extra virgen'],macro:{p:'44g',c:'38g',g:'12g',kcal:'440'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Manzana + 1 cda mantequilla de almendras','Agua con canela en rama'],macro:{p:'4g',c:'22g',g:'9g',kcal:'185'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Tortilla de claras con vegetales mixtos','Ensalada verde con vinagre de manzana','Caldo vegetal detox'],macro:{p:'28g',c:'14g',g:'8g',kcal:'240'}},
+ },
+ tip:'El vinagre de manzana (1 cda en agua antes de comer) reduce el pico glucémico post-comida hasta un 30%. La canela mejora la sensibilidad a la insulina — fundamental en menopausia.',
+ exercise:'Caminata 10 min después de cada comida principal (3x10 min = 30 min total)',
+},
+{d:11,w:2,title:'Cerebro y memoria',phase:'pre',focus:'Omega-3 DHA + Colina + B6',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Tostada integral con salmón ahumado y queso crema','Rúcula fresca encima','Huevo duro 1u'],macro:{p:'26g',c:'24g',g:'12g',kcal:'310'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Caballa al horno con romero y ajo','Ensalada de garbanzos + espinaca + remolacha','Aceite de oliva y limón'],macro:{p:'38g',c:'32g',g:'14g',kcal:'415'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Mix de nueces: nueces + almendras + anacardos (30g)','Arándanos frescos 1/2 taza'],macro:{p:'7g',c:'18g',g:'16g',kcal:'240'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Sopa de miso con tofu, champiñones y algas','Edamame 1/2 taza','Té de rooibos antes de dormir'],macro:{p:'22g',c:'18g',g:'6g',kcal:'220'}},
+ },
+ tip:'El DHA del pescado azul alimenta las membranas neuronales. La colina de los huevos es esencial para la memoria. En menopausia el cerebro necesita aún más grasas saludables.',
+ exercise:'Entrenamiento cognitivo: 20 min movimiento bailando + juego mental 15 min',
+},
+{d:12,w:2,title:'Líbido & vitalidad',phase:'pre',focus:'Zinc + L-arginina + Maca',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Batido: maca en polvo + cacao + leche de coco + banana','Semillas de calabaza 2 cdas (zinc)'],macro:{p:'14g',c:'42g',g:'12g',kcal:'330'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Ostras o mejillones al vapor 150g','Arroz salvaje 1/2 taza','Ensalada de pepino + aguacate + sésamo'],macro:{p:'30g',c:'30g',g:'14g',kcal:'375'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Dátiles 3u con almendras 10g','Té de damiana o hibisco'],macro:{p:'4g',c:'28g',g:'7g',kcal:'190'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Espinaca salteada con ajo y limón','Salmón 150g al horno','Quinoa roja 1/2 taza'],macro:{p:'42g',c:'28g',g:'12g',kcal:'390'}},
+ },
+ tip:'La maca (raíz andina) ayuda a equilibrar estrógeno y progesterona naturalmente y mejora la líbido. Empezá con 1 cdita al día y aumentá gradualmente. Es adaptógena.',
+ exercise:'Danza libre 20 min + ejercicios de suelo pélvico (Kegel) 3 series de 10',
+},
+{d:13,w:2,title:'Antienvejecimiento',phase:'post',focus:'Resveratrol + Polifenoles + CoQ10',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Smoothie bowl: acai + mango + granola','Coco rallado + semillas de cáñamo','Cacao nibs 1 cda'],macro:{p:'16g',c:'48g',g:'14g',kcal:'390'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Atún con ensalada mediterránea: aceitunas + tomate seco + alcaparras','Pan de masa madre 1 rebanada','Aceite de oliva extra virgen'],macro:{p:'38g',c:'28g',g:'14g',kcal:'395'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Uvas rojas 1 taza (resveratrol)','Chocolate 85% cacao 2 cuadraditos'],macro:{p:'3g',c:'28g',g:'7g',kcal:'190'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Pollo con curry suave + leche de coco','Espárragos al vapor','Arroz basmati 1/3 taza'],macro:{p:'40g',c:'26g',g:'14g',kcal:'395'}},
+ },
+ tip:'Las uvas tintas contienen resveratrol, que activa las sirtuinas (genes de longevidad). El chocolate oscuro +85% mejora el flujo sanguíneo y la elasticidad de la piel.',
+ exercise:'Pilates reformer o yoga fluido 40 min',
+},
+{d:14,w:2,title:'Reset digestivo',phase:'post',focus:'Fermentados + Prebióticos + Digestión',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Kéfir 200ml con banana + miel de manuka','Avena instantánea 1/2 taza','Jengibre rallado 1 cdita'],macro:{p:'18g',c:'50g',g:'5g',kcal:'320'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Bowl de kimchi + tofu firme + arroz integral','Alga wakame hidratada','Sésamo negro por encima'],macro:{p:'24g',c:'48g',g:'8g',kcal:'365'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Kvass de remolacha 150ml (probiótico natural)','Almendras 10g'],macro:{p:'3g',c:'14g',g:'6g',kcal:'120'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Crema de calabaza con jengibre y coco','Chucrut casero como acompañamiento 2 cdas','Semillas de lino molidas encima'],macro:{p:'10g',c:'28g',g:'10g',kcal:'240'}},
+ },
+ tip:'El 90% de la serotonina se produce en el intestino. Un microbioma sano reduce la ansiedad, el insomnio y los sofocos de la menopausia. Incluí fermentados todos los días.',
+ exercise:'Caminata digestiva 30 min post cena + masaje abdominal en círculos 5 min',
+},
+// ── SEMANA 3 ──
+{d:15,w:3,title:'Quemagrasas hormonal',phase:'pre',focus:'Proteína alta + Carbohidratos bajos',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Tortilla de 2 huevos + 2 claras con espinaca y salmón ahumado','Café con MCT oil 1 cdita'],macro:{p:'32g',c:'4g',g:'18g',kcal:'305'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Pechuga de pavo 180g a la plancha','Ensalada grande con zanahoria + remolacha + pepino','Limón y aceite de oliva'],macro:{p:'50g',c:'20g',g:'8g',kcal:'365'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Proteína en polvo de suero 1 scoop en agua','Almendras 15g'],macro:{p:'24g',c:'6g',g:'7g',kcal:'185'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Bacalao al horno con tomate y aceitunas','Brócoli + coliflor al vapor','Caldo de huesos 1 taza'],macro:{p:'40g',c:'14g',g:'10g',kcal:'310'}},
+ },
+ tip:'Días de proteína alta y carbohidratos moderados activan la lipólisis (quema de grasa). No te asustes de la proteína — en menopausia necesitás hasta 1,6g por kg de peso.',
+ exercise:'HIIT suave 20 min (intervalos de bajo impacto) + fuerza 15 min',
+},
+{d:16,w:3,title:'Músculo activo',phase:'pre',focus:'BCAA + Leucina + Creatina natural',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Batido: proteína de suero + avena + banana + leche','Mantequilla de maní 1 cda'],macro:{p:'38g',c:'50g',g:'10g',kcal:'445'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Solomillo de ternera 150g a la plancha','Quinoa con hierbas y limón 3/4 taza','Ensalada de espinaca + nueces'],macro:{p:'52g',c:'38g',g:'14g',kcal:'490'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Requesón 150g con frutas del bosque','Semillas de calabaza 1 cda'],macro:{p:'22g',c:'20g',g:'5g',kcal:'220'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Salmón 150g + brócoli + batata 150g','Aceite de oliva + ajo + limón'],macro:{p:'42g',c:'35g',g:'14g',kcal:'440'}},
+ },
+ tip:'La leucina activa mTOR, la vía de síntesis muscular. Necesitás al menos 3g de leucina por comida para estimular la construcción muscular. El salmón y la ternera son los reyes.',
+ exercise:'Entrenamiento fuerza 45 min: press banca + sentadillas + remo + peso muerto',
+},
+{d:17,w:3,title:'Anticelulitis',phase:'post',focus:'Circulación + Colágeno + Silicio',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Té de cola de caballo (silicio orgánico)','Yogur con granola + frambuesas + semillas de cáñamo'],macro:{p:'16g',c:'35g',g:'8g',kcal:'280'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Caldo de huesos casero enriquecido con vegetales','Rúcula con remolacha asada + queso de cabra + nueces','Aceite de oliva extra virgen'],macro:{p:'22g',c:'24g',g:'18g',kcal:'355'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Jugo de pepino + apio + limón + jengibre','Almendras 12g'],macro:{p:'4g',c:'12g',g:'7g',kcal:'130'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Salmón con pesto de espinaca sin lactosa','Espárragos al vapor','Ensalada de tomate cherry y aguacate'],macro:{p:'38g',c:'12g',g:'22g',kcal:'400'}},
+ },
+ tip:'La celulitis empeora con la caída del estrógeno. El silicio del té de cola de caballo refuerza el tejido conectivo. Masaje en seco (dry brushing) 5 min antes de ducharte — activa el drenaje linfático.',
+ exercise:'Cardio de bajo impacto 35 min + masaje con aceite de árnica en zonas de preocupación',
+},
+{d:18,w:3,title:'Insomnio & cortisol',phase:'post',focus:'Triptófano + Magnesio + GABA',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Avena con leche caliente + nuez moscada + miel','Plátano (triptófano)','Té de valeriana matutino (suave)'],macro:{p:'14g',c:'55g',g:'6g',kcal:'330'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Pechuga de pavo (triptófano) con salsa de tomate natural','Arroz integral 1/2 taza','Judías verdes al vapor'],macro:{p:'46g',c:'38g',g:'6g',kcal:'400'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Leche tibia de almendras con cacao y miel','Dátiles 2u'],macro:{p:'5g',c:'28g',g:'6g',kcal:'190'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Crema de calabaza y zanahoria','Huevo pochado 2u','Pan de centeno 1u','Té de manzanilla con lavanda antes de dormir'],macro:{p:'24g',c:'35g',g:'10g',kcal:'330'}},
+ },
+ tip:'El triptófano del pavo y los carbohidratos complejos en la cena producen melatonina. Cenar 2-3h antes de dormir, habitación fresca (18°C), sin pantallas 1h antes.',
+ exercise:'Yoga nidra 30 min o meditación guiada para el sueño',
+},
+{d:19,w:3,title:'Sofocos & calores',phase:'post',focus:'Fitoestrógenos + Sage + Phytoestrogens',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Batido de soja (fitoestrógenos) con fresas + lino molido','Tostada de centeno con aguacate'],macro:{p:'22g',c:'40g',g:'12g',kcal:'360'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Tempeh (soja fermentada) salteado con verduras y tamari','Arroz integral 1/2 taza','Té de salvia frío (reduce sofocos 50%)'],macro:{p:'30g',c:'45g',g:'10g',kcal:'395'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Edamame 1 taza','Agua mineral fría con menta y pepino'],macro:{p:'17g',c:'14g',g:'5g',kcal:'170'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Tofu sedoso con caldo de miso light','Algas y vegetales tiernos','Semillas de lino 1 cda encima'],macro:{p:'20g',c:'16g',g:'7g',kcal:'210'}},
+ },
+ tip:'La salvia (Salvia officinalis) reduce la frecuencia e intensidad de los sofocos hasta un 50% según estudios. Tomá 2-3 tazas de infusión al día, fría en verano. Evitá el alcohol y el picante que los disparan.',
+ exercise:'Natación o aquagym 30 min (el agua fresca ayuda a regular la temperatura)',
+},
+{d:20,w:3,title:'Piel luminosa',phase:'pre',focus:'Beta-carotenos + Vitamina E + Hidratación',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Smoothie naranja: zanahoria + mango + naranja + cúrcuma','Semillas de girasol 2 cdas (vit E)'],macro:{p:'6g',c:'52g',g:'8g',kcal:'310'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Pollo con salsa de tomate y pimiento rojo','Arroz de coliflor salteado con ajo','Ensalada de zanahoria + naranja + sésamo'],macro:{p:'42g',c:'28g',g:'10g',kcal:'380'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Papaya fresca 1 taza + unas gotas de limón','Nueces 10g'],macro:{p:'3g',c:'20g',g:'7g',kcal:'160'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Trucha arcoiris al horno con cúrcuma + jengibre','Batata asada con canela','Espinaca baby con aceite de oliva'],macro:{p:'38g',c:'32g',g:'12g',kcal:'390'}},
+ },
+ tip:'Los betacarotenos (zanahoria, mango, batata) se convierten en vitamina A que protege la piel del daño solar. La vitamina E del girasol es el antioxidante lipídico más potente. Combinados = piel luminosa.',
+ exercise:'Caminata al aire libre 30 min + 10 min ejercicios faciales (yoga facial)',
+},
+{d:21,w:3,title:'Semana 3 completa — Celebración',phase:'pre',focus:'Placer consciente + Nutrición festiva',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Pancakes de proteína con arándanos y sirope de agave','Yogur griego con miel','Café con canela'],macro:{p:'28g',c:'55g',g:'8g',kcal:'410'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Paella de verduras y mariscos (sin chorizo)','Ensalada verde grande','Kombucha 150ml'],macro:{p:'35g',c:'58g',g:'10g',kcal:'470'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Mousse de chocolate 85% con aguacate y miel','Fresas frescas'],macro:{p:'6g',c:'24g',g:'18g',kcal:'280'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Salmón gravlax con ensalada nórdica','Pan de centeno 1u','Té de hierbas especial'],macro:{p:'35g',c:'22g',g:'14g',kcal:'360'}},
+ },
+ tip:'¡Celebrá que llevás 3 semanas cuidándote! El placer consciente en la alimentación activa el sistema parasimpático y mejora la digestión. Comer con alegría también nutre.',
+ exercise:'Baile libre 30 min — ¡festejá con tu cuerpo!',
+},
+// ── SEMANA 4 ──
+{d:22,w:4,title:'Potencia total',phase:'pre',focus:'Fuerza máxima + Proteína',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['3 huevos revueltos + 1 scoop proteína','Avena con frutas del bosque','Café negro'],macro:{p:'45g',c:'48g',g:'12g',kcal:'480'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Bife de ternera magro 200g','Batata + brócoli al vapor','Ensalada de espinaca + semillas de girasol'],macro:{p:'55g',c:'38g',g:'10g',kcal:'465'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Requesón con piña y kiwi','Almendras 12g'],macro:{p:'18g',c:'22g',g:'7g',kcal:'225'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Pollo entero al horno con romero y limón','Puré de coliflor con aceite de oliva','Ensalada grande variada'],macro:{p:'48g',c:'16g',g:'12g',kcal:'380'}},
+ },
+ tip:'La semana 4 es para consolidar. Tu cuerpo ya está adaptado — ahora los resultados se aceleran. Aumentá el peso en los ejercicios de fuerza un 10% esta semana.',
+ exercise:'Entrenamiento fuerza pesado 50 min + cardio 15 min post',
+},
+{d:23,w:4,title:'Riñones & depuración',phase:'post',focus:'Hidratación profunda + Electrolitos',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Agua con limón, jengibre y cúrcuma (nativamente)','Smoothie verde: kale + pepino + manzana + menta','Semillas de chía 2 cdas'],macro:{p:'8g',c:'38g',g:'6g',kcal:'240'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Sopa de garbanzos con cúrcuma y coriandro','Pan de centeno','Ensalada de perejil + tomate + limón (taboulé light)'],macro:{p:'24g',c:'52g',g:'8g',kcal:'385'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Sandía + menta (diurética natural)','Agua de coco natural 200ml (electrolitos)'],macro:{p:'3g',c:'28g',g:'1g',kcal:'130'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Espárragos al vapor (diuréticos)','Bacalao al horno con hierbas','Arroz de coliflor con limón'],macro:{p:'38g',c:'14g',g:'6g',kcal:'265'}},
+ },
+ tip:'Bebé mínimo 2 litros de agua al día. El cuerpo menopaúsico retiene más líquidos por los cambios hormonales. Los espárragos, el pepino y el apio son los mejores diuréticos naturales.',
+ exercise:'Yoga con foco en torsiones (estimulan riñones y hígado) 35 min',
+},
+{d:24,w:4,title:'Neurotransmisores & mood',phase:'post',focus:'Serotonina + Dopamina + Omega-3',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Cacao caliente con leche de coco y maca','Tostada de masa madre con mantequilla de almendras + banana'],macro:{p:'14g',c:'55g',g:'14g',kcal:'405'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Salmón a la plancha con miso glaze','Arroz de coliflor + edamame + zanahoria','Algas nori de acompañamiento'],macro:{p:'42g',c:'28g',g:'14g',kcal:'415'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Mix: nueces + cacao nibs + pasas + coco rallado (30g)','Kombucha 100ml'],macro:{p:'6g',c:'24g',g:'14g',kcal:'240'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Pollo con curry de leche de coco y espinaca','Quinoa 1/2 taza','Yogur de coco como postre'],macro:{p:'40g',c:'38g',g:'16g',kcal:'460'}},
+ },
+ tip:'La depresión y la ansiedad aumentan en menopausia por la caída del estrógeno que afecta la serotonina. El omega-3 DHA, el cacao y los probióticos son los mejores aliados del ánimo.',
+ exercise:'Actividad grupal placentera: baile, deporte, caminata con amiga',
+},
+{d:25,w:4,title:'Metabolismo acelerado',phase:'pre',focus:'Termogénicos naturales + Ayuno intermitente',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['(Empezar a comer a las 12h si hacés 16:8)','Batido de proteína + café + MCT oil (rompe el ayuno suavemente)'],macro:{p:'28g',c:'5g',g:'10g',kcal:'220'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Primera comida completa: salmon + quinoa + ensalada grande','Jengibre + limón + cayena en el aderezo'],macro:{p:'45g',c:'38g',g:'14g',kcal:'460'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Té verde matcha + almendras 15g'],macro:{p:'5g',c:'8g',g:'8g',kcal:'130'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Pollo a la plancha con salsa de mostaza y hierbas','Brócoli + coliflor + espárragos','Cerrar la ventana de comida a las 20h'],macro:{p:'48g',c:'14g',g:'8g',kcal:'325'}},
+ },
+ tip:'El ayuno intermitente 16:8 puede mejorar la sensibilidad a la insulina, reducir la grasa visceral y elevar la hormona de crecimiento natural. Consultá con tu médico antes si tomás medicación.',
+ exercise:'Entrenamiento en ayunas (si estás bien): 30 min fuerza moderada',
+},
+{d:26,w:4,title:'Músculos & recuperación',phase:'pre',focus:'Anti-DOMS + Antioxidantes + Proteína',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Batido post-entreno: proteína de suero + cereza ácida + banana + espinaca'],macro:{p:'38g',c:'45g',g:'4g',kcal:'375'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Ternera magra 180g con salsa de cúrcuma y jengibre','Batata 180g','Brócoli al vapor con sésamo'],macro:{p:'50g',c:'42g',g:'8g',kcal:'445'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Requesón con cerezas (antiinflamatorio) y miel','Leche de cúrcuma fría'],macro:{p:'18g',c:'24g',g:'4g',kcal:'205'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Pechuga de pollo en caldo de huesos','Puré de patata + coliflor con aceite de oliva','Ensalada de rúcula y tomate'],macro:{p:'45g',c:'32g',g:'10g',kcal:'400'}},
+ },
+ tip:'Las cerezas ácidas (tart cherry) reducen el dolor muscular post-entrenamiento (DOMS) hasta un 22%. La cúrcuma + pimienta negra es antiinflamatoria tan potente como el ibuprofeno para el músculo.',
+ exercise:'Descanso activo: stretching profundo 40 min + foam roller',
+},
+{d:27,w:4,title:'Equilibrio total',phase:'post',focus:'Armonía hormonal completa',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['El desayuno que más te gustó de estas 4 semanas','+ 1 taza de té de hierbas favorito'],macro:{p:'22g',c:'38g',g:'10g',kcal:'335'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Ensalada proteica grande: atún + garbanzos + aguacate + quinoa + vegetales','Aceite de oliva + limón + mostaza'],macro:{p:'38g',c:'42g',g:'18g',kcal:'480'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Smoothie de celebración: mango + cúrcuma + leche de coco + jengibre + pimienta'],macro:{p:'4g',c:'30g',g:'8g',kcal:'210'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Salmón + quinoa + vegetales de temporada al horno','Ensalada fresca','Kéfir como postre'],macro:{p:'42g',c:'35g',g:'14g',kcal:'435'}},
+ },
+ tip:'Llevás 27 días cambiando tu bioquímica desde adentro. Tus células se renuevan, tus hormonas están más equilibradas, tu músculo está siendo preservado. Lo que hacés hoy lo verás en 3 meses.',
+ exercise:'Tu actividad favorita de este mes — hazla con alegría',
+},
+{d:28,w:4,title:'🎉 ¡Día 28! Nueva versión',phase:'post',focus:'Celebración + Sostenibilidad',
+ meals:{
+  d:{name:'🌅 Desayuno',icon:'🌅',items:['Brunch especial: huevos benedictinos saludables con salmón','Aguacate + tostada integral','Kombucha o jugo verde festivo'],macro:{p:'32g',c:'30g',g:'18g',kcal:'415'}},
+  a:{name:'🥗 Almuerzo',icon:'🌿',items:['Paella de mariscos y verduras festiva','Ensalada con todos los colores','Copa de vino tinto (resveratrol) si deseás'],macro:{p:'38g',c:'55g',g:'12g',kcal:'485'}},
+  m:{name:'🍎 Merienda',icon:'🍎',items:['Mousse de cacao y aguacate','Fresas + crema de coco'],macro:{p:'6g',c:'22g',g:'18g',kcal:'275'}},
+  c:{name:'🌙 Cena',icon:'🌙',items:['Salmón al horno con glaseado de miel y mostaza','Quinoa arcoiris','Ensalada de colores festiva'],macro:{p:'42g',c:'38g',g:'14g',kcal:'455'}},
+ },
+ tip:'¡28 DÍAS! Lo lograste. Ahora recordá: esto no termina aquí. Tu cuerpo necesita entre 3-6 meses para ver los cambios completos en hormonas y composición corporal. ¡Repetí el plan!',
+ exercise:'¡Celebrá con tu cuerpo! Baila, sal, movete — hoy lo que más disfrutes',
+},
+];
+
+// ══════════════════════════════════════
+// STORAGE
+// ══════════════════════════════════════
+const S=k=>localStorage.getItem('nf_'+k);
+const SS=(k,v)=>localStorage.setItem('nf_'+k,JSON.stringify(v));
+const SG=k=>{try{return JSON.parse(S(k))||null}catch{return null}};
+let completed=SG('completed')||[];
+
+function markComplete(d){
+  if(!completed.includes(d)){completed.push(d);SS('completed',completed)}
+  else{completed=completed.filter(x=>x!==d);SS('completed',completed)}
+  renderProgress();
+  document.querySelectorAll(`.day-card[data-day="${d}"]`).forEach(c=>{
+    c.classList.toggle('completed',completed.includes(d));
+    const btn=c.querySelector('.complete-btn');
+    if(btn){btn.classList.toggle('done',completed.includes(d));btn.textContent=completed.includes(d)?'✅ Día completado — ¡Excelente!':'✓ Marcar día como completado';}
+  });
+  showToast(completed.includes(d)?'🎉 ¡Día '+d+' completado!':'Día '+d+' desmarcado');
+}
+
+// ══════════════════════════════════════
+// RENDER DAYS
+// ══════════════════════════════════════
+let currentWeek=1;
+function showWeek(w,btn){
+  currentWeek=w;
+  document.querySelectorAll('.week-tab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  renderDays();
+}
+
+function renderDays(){
+  const c=document.getElementById('daysContainer');
+  c.innerHTML='';
+  const days=DAYS.filter(d=>d.w===currentWeek);
+  days.forEach(day=>{
+    const done=completed.includes(day.d);
+    const div=document.createElement('div');
+    div.className='day-card'+(done?' completed':'');
+    div.dataset.day=day.d;
+    div.innerHTML=`
+    <div class="day-header" onclick="toggleDay(this,${day.d})">
+      <div class="day-num">Día<span>${day.d}</span></div>
+      <div class="day-meta">
+        <h3>${done?'✅ ':''} ${day.title}</h3>
+        <p>${day.focus}</p>
+        <div class="day-tags">
+          <span class="dtag dtag-w">${day.phase==='pre'?'Pre-menopausia':'Post-menopausia'}</span>
+          <span class="dtag dtag-p">🎯 ${day.focus.split('+')[0].trim()}</span>
+        </div>
+      </div>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-inner">
+        <div class="recipe-grid">
+          ${Object.values(day.meals).map(m=>`
+          <div class="recipe-block">
+            <h4><span class="rb-icon">${m.icon}</span>${m.name}</h4>
+            <ul>${m.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+            ${m.macro?`<div class="macro-bar">
+              <div class="macro"><div class="mv">${m.macro.p}</div><div class="ml">Proteína</div></div>
+              <div class="macro"><div class="mv">${m.macro.c}</div><div class="ml">Carbos</div></div>
+              <div class="macro"><div class="mv">${m.macro.g}</div><div class="ml">Grasas</div></div>
+              <div class="macro"><div class="mv" style="color:var(--gold)">${m.macro.kcal}</div><div class="ml">kcal</div></div>
+            </div>`:''}
+          </div>`).join('')}
+        </div>
+        <div class="tip-block">
+          <h5>💜 Consejo del día</h5>
+          <p>${day.tip}</p>
+        </div>
+        <div style="margin-top:0.75rem;background:var(--bg3);border-radius:12px;padding:0.85rem 1rem;border:1px solid var(--border)">
+          <h5 style="font-size:0.78rem;font-weight:700;color:var(--teal);margin-bottom:0.3rem;display:flex;align-items:center;gap:0.35rem">💪 Ejercicio del día</h5>
+          <p style="font-size:0.82rem;color:var(--text2)">${day.exercise}</p>
+        </div>
+        <button class="complete-btn${done?' done':''}" onclick="markComplete(${day.d})">${done?'✅ Día completado — ¡Excelente!':'✓ Marcar día como completado'}</button>
+      </div>
+    </div>`;
+    c.appendChild(div);
+  });
+}
+
+function toggleDay(header,d){
+  const card=header.closest('.day-card');
+  const wasOpen=card.classList.contains('open');
+  document.querySelectorAll('.day-card.open').forEach(c=>c.classList.remove('open'));
+  if(!wasOpen)card.classList.add('open');
+}
+
+// ══════════════════════════════════════
+// PROGRESS
+// ══════════════════════════════════════
+function renderProgress(){
+  const done=completed.length;
+  const pct=Math.round(done/28*100);
+  document.getElementById('statDone').textContent=done;
+  document.getElementById('statLeft').textContent=28-done;
+  document.getElementById('statPct').textContent=pct+'%';
+  document.getElementById('topProg').textContent=done+'/28';
+  const bp=document.getElementById('bigProgress');
+  if(bp)bp.style.width=pct+'%';
+  const grid=document.getElementById('calGrid');
+  if(grid){
+    grid.innerHTML='';
+    for(let i=1;i<=28;i++){
+      const d=document.createElement('div');
+      d.className='cal-day'+(completed.includes(i)?' done':'');
+      d.textContent=i;
+      d.onclick=()=>{showWeek(Math.ceil(i/7),null);showTab('recetas');setTimeout(()=>{const el=document.querySelector(`.day-card[data-day="${i}"]`);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('open');}},200)};
+      grid.appendChild(d);
+    }
+  }
+}
+
+// ══════════════════════════════════════
+// TIPS DATA
+// ══════════════════════════════════════
+const TIPS=[
+  {icon:'😴',title:'Sueño reparador',color:'var(--violet)',p:'Dormí 7-9h. El cortisol nocturno elevado inhibe la progesterona. Creá un ritual: habitación a 18°C, sin pantallas 1h antes, lavanda en la almohada, magnesio antes de dormir. El insomnio en menopausia es hormonal, no psicológico.'},
+  {icon:'🏋️',title:'Entrenamiento de fuerza',color:'var(--teal)',p:'Es lo más importante en menopausia. Después de los 40 perdemos 1-2% de masa muscular por año (sarcopenia). El músculo quema grasa, protege los huesos y mejora la sensibilidad a la insulina. Mínimo 2-3 sesiones semanales.'},
+  {icon:'☀️',title:'Vitamina D & sol',color:'var(--gold)',p:'El 80% de las mujeres en menopausia tienen déficit de D3. 20 minutos de sol en brazos y piernas antes de las 11h o después de las 16h. Suplemento: 2000-4000 UI/día con vitamina K2. Analizate el nivel en sangre.'},
+  {icon:'🧘',title:'Gestión del estrés',color:'var(--rose)',p:'El cortisol crónico convierte la progesterona en glucocorticoides (¡las "roba"!). Meditación, respiración diafragmática, yoga o simplemente 20 min en la naturaleza bajan el cortisol y equilibran las hormonas.'},
+  {icon:'💧',title:'Hidratación hormonal',color:'var(--teal)',p:'En menopausia los tejidos retienen menos agua. Mínimo 2 litros diarios, más si hacés ejercicio. Agua con rodajas de limón, pepino y menta. Evitá el alcohol — es el peor disruptor hormonal y eleva el riesgo de cáncer de mama.'},
+  {icon:'🦴',title:'Salud ósea activa',color:'var(--violet)',p:'La caída del estrógeno acelera la pérdida ósea (hasta 2% anual). Calcio 1200mg/día (preferí alimentos), vitamina D3+K2, fuerza con impacto (caminar, saltar, pesas). Evitá el tabaco y el exceso de sodio que roban calcio.'},
+  {icon:'❤️',title:'Corazón & colesterol',color:'var(--rose)',p:'El estrógeno protege el corazón. Sin él, el LDL puede subir. Omega-3 del pescado azul (3 veces/semana), aceite de oliva extra virgen, avena, legumbres, nueces. Revisá tu perfil lipídico cada 6 meses.'},
+  {icon:'🧠',title:'Niebla mental (brain fog)',color:'var(--gold)',p:'El estrógeno alimenta el cerebro. La "niebla mental" es real y temporal. Omega-3 DHA, ejercicio aeróbico (genera BDNF), sueño profundo, meditación. Evitá el azúcar refinada que inflama el cerebro.'},
+  {icon:'🌡️',title:'Sofocos: protocolo',color:'var(--teal)',p:'Reducí: alcohol, picante, cafeína, estrés, ropa sintética. Aumentá: fitoestrógenos (soja, lino), té de salvia, ejercicio regular. El isoflavonol de la soja redujo sofocos un 45% en estudios clínicos de 12 semanas.'},
+  {icon:'💪',title:'Masa muscular estratégica',color:'var(--violet)',p:'Necesitás 1,6-2g de proteína por kg de peso. Distribuila en 4 comidas (30-40g cada una). La leucina (huevo, ternera, salmón) activa la síntesis muscular. Sin proteína suficiente, ni el mejor ejercicio funciona.'},
+  {icon:'🌿',title:'Fitoestrógenos diarios',color:'var(--rose)',p:'Semillas de lino molidas (1-2 cdas/día), tofu o tempeh (3x/semana), edamame, miso. Los isoflavonas de soja son seguros para la mayoría de mujeres. Si tenés historial de cáncer hormonodependiente, consultá tu médico.'},
+  {icon:'🔬',title:'Análisis recomendados',color:'var(--gold)',p:'Cada 6-12 meses: FSH, LH, estradiol, progesterona, testosterona, DHEA, vitamina D, perfil tiroideo (TSH, T3, T4), perfil lipídico, hemograma, glucosa e insulina en ayunas. El conocimiento de tus hormonas es poder.'},
+];
+
+function renderTips(){
+  const g=document.getElementById('tipsGrid');
+  if(!g)return;
+  g.innerHTML=TIPS.map(t=>`<div class="tip-card"><span class="tc-icon">${t.icon}</span><h3>${t.title}</h3><p>${t.p}</p></div>`).join('');
+}
+
+// ══════════════════════════════════════
+// INFO DATA
+// ══════════════════════════════════════
+function renderInfo(){
+  const c=document.getElementById('infoContent');
+  if(!c)return;
+  c.innerHTML=`
+  <div class="info-card">
+    <h3>¿Qué es la pre-menopausia (perimenopausia)?</h3>
+    <p>La perimenopausia comienza generalmente entre los 40 y 48 años y puede durar de 2 a 10 años. Es la fase de transición donde los ovarios empiezan a producir menos estrógeno y progesterona. Los ciclos se vuelven irregulares, pueden aparecer sofocos, cambios de humor, insomnio y dificultad para mantener el peso.</p>
+    <h4>Síntomas más comunes:</h4>
+    <ul><li>Ciclos irregulares o más abundantes</li><li>Sofocos y sudores nocturnos</li><li>Cambios de ánimo, ansiedad o irritabilidad</li><li>Insomnio o sueño de mala calidad</li><li>Aumento de peso especialmente en zona abdominal</li><li>Reducción de la líbido</li><li>Sequedad vaginal</li></ul>
+  </div>
+  <div class="info-card">
+    <h3>La menopausia y post-menopausia</h3>
+    <p>La menopausia se confirma cuando llevás 12 meses consecutivos sin menstruación. El promedio de edad es 51 años. La post-menopausia es la etapa que sigue y dura el resto de tu vida. Los síntomas suelen mejorar con el tiempo, pero los riesgos para huesos, corazón y cognición aumentan.</p>
+    <h4>Cambios metabólicos clave:</h4>
+    <ul><li>Resistencia a la insulina aumentada → más fácil subir de peso</li><li>Pérdida acelerada de masa muscular (sarcopenia)</li><li>Reducción de densidad ósea (osteopenia → osteoporosis)</li><li>Cambio en el perfil lipídico (LDL sube, HDL baja)</li><li>Mayor riesgo cardiovascular</li><li>Cambios en la piel (colágeno cae un 30% en los primeros 5 años)</li></ul>
+  </div>
+  <div class="info-card">
+    <h3>Por qué este plan funciona</h3>
+    <p>Este plan de 28 días está diseñado con base en 4 pilares científicos:</p>
+    <h4>1. Proteína alta para preservar músculo</h4>
+    <p>1,6-2g/kg de peso. Distribuida en 4 comidas con al menos 3g de leucina por comida. Sin proteína suficiente, la menopausia destruye músculo implacablemente.</p>
+    <h4>2. Fitoestrógenos naturales</h4>
+    <p>Isoflavonas de soja, lignanos del lino, cumestanos del brócoli. Actúan como moduladores selectivos del receptor estrogénico — suaves y seguros para la mayoría.</p>
+    <h4>3. Antiinflamación sistémica</h4>
+    <p>Omega-3 EPA+DHA, cúrcuma + pimienta negra, berries, aceite de oliva extra virgen. La inflamación crónica de bajo grado acelera el envejecimiento y empeora los síntomas.</p>
+    <h4>4. Microbioma intestinal</h4>
+    <p>El intestino produce y metaboliza estrógenos. El "estroboloma" (bacterias que gestionan el estrógeno) necesita probióticos y prebióticos para funcionar.</p>
+  </div>
+  <div class="info-card">
+    <h3>Alimentos estrella para la menopausia</h3>
+    <h4>🥇 Top 10 imprescindibles:</h4>
+    <ul>
+      <li><strong>Salmón salvaje</strong> — Omega-3 DHA + EPA + vitamina D3 + proteína completa</li>
+      <li><strong>Semillas de lino molidas</strong> — Lignanos (fitoestrógenos) + omega-3 ALA + fibra</li>
+      <li><strong>Tofu/Tempeh fermentado</strong> — Isoflavonas biodisponibles + proteína completa</li>
+      <li><strong>Huevos enteros</strong> — Colina + vitamina D + leucina + colesterol bueno (sí, el huevo no es malo)</li>
+      <li><strong>Brócoli y crucíferas</strong> — DIM (metaboliza el exceso de estrógeno), antioxidantes, calcio</li>
+      <li><strong>Arándanos</strong> — Antocianinas, antiinflamatorias, protegen el ADN celular</li>
+      <li><strong>Kéfir y yogur griego</strong> — Probióticos vivos, proteína, calcio biodisponible</li>
+      <li><strong>Batata/Boniato</strong> — Beta-caroteno, vitamina C, carbohidrato de carga glucémica media</li>
+      <li><strong>Aguacate</strong> — Grasas monoinsaturadas, vitamina E, potasio, ácido fólico</li>
+      <li><strong>Nueces</strong> — Omega-3 ALA + vitamina E + magnesio + fitoestrógenos</li>
+    </ul>
+  </div>
+  <div class="info-card">
+    <h3>Qué evitar o reducir</h3>
+    <ul>
+      <li><strong>Alcohol</strong> — Principal disruptor hormonal, aumenta el riesgo de cáncer de mama, interrumpe el sueño</li>
+      <li><strong>Azúcar refinada</strong> — Eleva la insulina, promueve la inflamación, deteriora el colágeno (glicación)</li>
+      <li><strong>Aceites vegetales refinados</strong> — (girasol, maíz, soya refinada) → omega-6 proinflamatorio</li>
+      <li><strong>Ultraprocesados</strong> — Alteran el microbioma y los estrógenos</li>
+      <li><strong>Exceso de sodio</strong> — Retención de líquidos, pérdida de calcio en orina</li>
+      <li><strong>Cafeína en exceso</strong> — Puede empeorar sofocos y ansiedad (2 tazas/día máximo)</li>
+      <li><strong>Carbohidratos refinados</strong> — Pan blanco, arroz blanco, pasta sin fibra en exceso</li>
+    </ul>
+  </div>
+  <div class="info-card">
+    <h3>Suplementación básica (consultá tu médico)</h3>
+    <ul>
+      <li><strong>Vitamina D3 + K2</strong> — 2000-5000 UI de D3 con 100mcg de K2 MK-7</li>
+      <li><strong>Magnesio glicinato</strong> — 300-400mg antes de dormir (sueño, músculo, estrés)</li>
+      <li><strong>Omega-3 EPA+DHA</strong> — 2-3g/día de aceite de pescado de calidad</li>
+      <li><strong>Colágeno hidrolizado tipo I y III</strong> — 10-15g/día con vitamina C</li>
+      <li><strong>Probiótico multiestirpe</strong> — 10+ billones UFC, variedades de Lactobacillus y Bifidobacterium</li>
+      <li><strong>Ashwagandha</strong> — Adaptógeno que reduce el cortisol y mejora el sueño</li>
+      <li><strong>Maca gelatinizada</strong> — Para libido, energía y síntomas menopáusicos</li>
+    </ul>
+    <p style="margin-top:0.6rem;color:var(--text3);font-size:0.8rem">⚠️ Esta información es educativa. Consultá siempre con tu médico o nutricionista antes de suplementarte.</p>
+  </div>`;
+}
+
+// ══════════════════════════════════════
+// TABS
+// ══════════════════════════════════════
+const TABS={recetas:'secRecetas',progreso:'secProgreso',consejos:'secConsejos',info:'secInfo'};
+const TAB_NAMES=['recetas','progreso','consejos','info'];
+function showTab(tab){
+  Object.values(TABS).forEach(id=>{
+    const s=document.getElementById(id);
+    if(s)s.classList.remove('active');
+  });
+  const s=document.getElementById(TABS[tab]);
+  if(s)s.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',TAB_NAMES[i]===tab));
+  document.querySelectorAll('.bn-btn').forEach((b,i)=>b.classList.toggle('active',TAB_NAMES[i]===tab));
+  if(tab==='progreso')renderProgress();
+}
+
+// ══════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+function initApp(){
+  renderDays();
+  renderProgress();
+  renderTips();
+  renderInfo();
+}
+</script>
+</body>
+</html>
