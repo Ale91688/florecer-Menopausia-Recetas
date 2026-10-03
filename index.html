@@ -416,6 +416,14 @@ img{max-width:100%}
 
   <!-- PROGRESO -->
   <div class="section" id="secProgreso">
+    <!-- Ciclo activo -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+      <div id="cycleLabel" style="font-size:0.9rem;font-weight:700;color:var(--teal)">Ciclo 1</div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        <button onclick="startNewCycle()" style="padding:0.45rem 0.9rem;border-radius:20px;background:rgba(45,212,191,0.12);border:1px solid rgba(45,212,191,0.3);color:var(--teal);font-size:0.78rem;font-weight:600;min-height:36px">＋ Nuevo ciclo</button>
+        <button onclick="deleteProgress()" style="padding:0.45rem 0.9rem;border-radius:20px;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);color:#f87171;font-size:0.78rem;font-weight:600;min-height:36px">🗑️ Borrar progreso</button>
+      </div>
+    </div>
     <div class="progress-overview">
       <div class="prog-stat"><div class="ps-val" id="statDone" style="color:var(--green)">0</div><div class="ps-lbl">Días completos</div></div>
       <div class="prog-stat"><div class="ps-val" id="statLeft" style="color:var(--gold)">28</div><div class="ps-lbl">Días restantes</div></div>
@@ -428,7 +436,9 @@ img{max-width:100%}
       <div class="cal-label">Calendario del plan</div>
       <div class="calendar-grid" id="calGrid"></div>
     </div>
-    <div style="margin-top:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem">
+    <!-- Historial de ciclos -->
+    <div id="cycleHistory" style="margin-top:1.5rem"></div>
+    <div style="margin-top:1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem">
       <h3 style="font-size:0.9rem;font-weight:700;margin-bottom:0.75rem;color:var(--text2)">¿Por qué funciona este plan?</h3>
       <p style="font-size:0.83rem;color:var(--text2);line-height:1.7">Durante la perimenopausia y menopausia, los niveles de estrógeno y progesterona caen. Esto afecta la sensibilidad a la insulina, la quema de grasa y la masa muscular. Este plan combina <strong style="color:var(--teal)">proteína de alta calidad</strong> (para preservar músculo), <strong style="color:var(--gold)">fitoestrógenos naturales</strong> (para equilibrio hormonal), <strong style="color:var(--rose)">antiinflamatorios</strong> (omega-3, cúrcuma, berries) y <strong style="color:var(--violet)">prebióticos y probióticos</strong> (para salud intestinal que potencia las hormonas).</p>
     </div>
@@ -779,11 +789,34 @@ const DAYS=[
 const S=k=>localStorage.getItem('nf_'+k);
 const SS=(k,v)=>localStorage.setItem('nf_'+k,JSON.stringify(v));
 const SG=k=>{try{return JSON.parse(S(k))||null}catch{return null}};
-let completed=SG('completed')||[];
+
+// ── SISTEMA DE CICLOS ──
+// cycles: [{num, startDate, completed:[1,3,5,...]}]
+// currentCycle: índice activo
+let cycles=SG('cycles')||[];
+let currentCycleIdx=SG('currentCycleIdx');
+if(currentCycleIdx===null){currentCycleIdx=0;}
+
+// Si no hay ciclos, crear el primero
+if(cycles.length===0){
+  cycles=[{num:1,startDate:new Date().toLocaleDateString('es-AR'),completed:[]}];
+  SS('cycles',cycles);
+  SS('currentCycleIdx',0);
+}
+
+// Helper: días completados del ciclo activo
+function getCompleted(){return cycles[currentCycleIdx]?cycles[currentCycleIdx].completed:[];}
+
+// Variable que usa el resto del código (compatibilidad total)
+let completed=getCompleted();
 
 function markComplete(d){
-  if(!completed.includes(d)){completed.push(d);SS('completed',completed)}
-  else{completed=completed.filter(x=>x!==d);SS('completed',completed)}
+  const cyc=cycles[currentCycleIdx];
+  if(!cyc)return;
+  if(!cyc.completed.includes(d)){cyc.completed.push(d);}
+  else{cyc.completed=cyc.completed.filter(x=>x!==d);}
+  completed=cyc.completed;
+  SS('cycles',cycles);
   renderProgress();
   document.querySelectorAll(`.day-card[data-day="${d}"]`).forEach(c=>{
     c.classList.toggle('completed',completed.includes(d));
@@ -791,6 +824,39 @@ function markComplete(d){
     if(btn){btn.classList.toggle('done',completed.includes(d));btn.textContent=completed.includes(d)?'✅ Día completado — ¡Excelente!':'✓ Marcar día como completado';}
   });
   showToast(completed.includes(d)?'🎉 ¡Día '+d+' completado!':'Día '+d+' desmarcado');
+}
+
+function startNewCycle(){
+  if(!confirm('¿Querés iniciar un nuevo Ciclo de 28 días?\n\nTu historial anterior se conserva y podés consultarlo abajo.'))return;
+  const newNum=cycles.length+1;
+  cycles.push({num:newNum,startDate:new Date().toLocaleDateString('es-AR'),completed:[]});
+  currentCycleIdx=cycles.length-1;
+  completed=getCompleted();
+  SS('cycles',cycles);
+  SS('currentCycleIdx',currentCycleIdx);
+  renderDays();
+  renderProgress();
+  showToast('🌱 ¡Ciclo '+newNum+' iniciado!');
+}
+
+function deleteProgress(){
+  if(!confirm('⚠️ ¿Estás segura de que querés borrar TODO el historial de ciclos?\n\nEsta acción no se puede deshacer.'))return;
+  cycles=[{num:1,startDate:new Date().toLocaleDateString('es-AR'),completed:[]}];
+  currentCycleIdx=0;
+  completed=[];
+  SS('cycles',cycles);
+  SS('currentCycleIdx',0);
+  renderDays();
+  renderProgress();
+  showToast('🗑️ Historial borrado. Ciclo 1 iniciado.');
+}
+
+function switchCycle(idx){
+  currentCycleIdx=idx;
+  completed=getCompleted();
+  SS('currentCycleIdx',currentCycleIdx);
+  renderDays();
+  renderProgress();
 }
 
 // ══════════════════════════════════════
@@ -875,6 +941,15 @@ function renderProgress(){
   document.getElementById('topProg').textContent=done+'/28';
   const bp=document.getElementById('bigProgress');
   if(bp)bp.style.width=pct+'%';
+
+  // Etiqueta ciclo activo
+  const cl=document.getElementById('cycleLabel');
+  if(cl){
+    const cyc=cycles[currentCycleIdx];
+    cl.textContent='Ciclo '+(currentCycleIdx+1)+' — iniciado el '+(cyc?cyc.startDate:'');
+  }
+
+  // Calendario
   const grid=document.getElementById('calGrid');
   if(grid){
     grid.innerHTML='';
@@ -885,6 +960,28 @@ function renderProgress(){
       d.onclick=()=>{showWeek(Math.ceil(i/7),null);showTab('recetas');setTimeout(()=>{const el=document.querySelector(`.day-card[data-day="${i}"]`);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('open');}},200)};
       grid.appendChild(d);
     }
+  }
+
+  // Historial de ciclos anteriores
+  const hist=document.getElementById('cycleHistory');
+  if(hist){
+    if(cycles.length<=1){hist.innerHTML='';return;}
+    let html='<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem"><h3 style="font-size:0.88rem;font-weight:700;color:var(--text2);margin-bottom:0.75rem">📋 Historial de ciclos</h3>';
+    cycles.forEach((cyc,idx)=>{
+      const d=cyc.completed.length;
+      const p=Math.round(d/28*100);
+      const isActive=idx===currentCycleIdx;
+      html+=`<div onclick="switchCycle(${idx})" style="display:flex;align-items:center;gap:0.75rem;padding:0.7rem 0.9rem;border-radius:10px;margin-bottom:0.4rem;cursor:pointer;background:${isActive?'rgba(45,212,191,0.1)':'var(--bg3)'};border:1px solid ${isActive?'rgba(45,212,191,0.35)':'var(--border)'};touch-action:manipulation">
+        <div style="min-width:34px;height:34px;border-radius:8px;background:${isActive?'rgba(45,212,191,0.2)':'var(--bg2)'};display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:${isActive?'var(--teal)':'var(--text3)'}">C${cyc.num}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:0.82rem;font-weight:600;color:${isActive?'var(--teal)':'var(--text)'}">${isActive?'▶ ':''}Ciclo ${cyc.num} ${isActive?'(activo)':''}</div>
+          <div style="font-size:0.73rem;color:var(--text3)">Iniciado: ${cyc.startDate} · ${d}/28 días · ${p}%</div>
+        </div>
+        <div style="font-size:0.78rem;font-weight:700;color:${p===100?'var(--green)':'var(--text2)'}">${p===100?'✅':d+'/28'}</div>
+      </div>`;
+    });
+    html+='</div>';
+    hist.innerHTML=html;
   }
 }
 
